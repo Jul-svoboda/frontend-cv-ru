@@ -18,7 +18,7 @@ Frontend-разработчик с техническим бэкграундом
 ## Навыки ##
 - **_Layout & Styling:_** Flexbox, Grid, responsive design, Tailwind CSS
 - **_Frameworks & Libraries_**: React, Next.js
-- **_State & Data Fetching_**: REST API (fetch/axios), (если используете — Redux/Context)
+- **_State & Data Fetching_**: REST API (fetch/axios),  Redux/Context
 - **_Tools_**: Git, GitHub, Figma, Linux (basic)
 
 ## Опыт ##
