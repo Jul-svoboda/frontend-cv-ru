@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Резюме Свободина Юлия</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-dark: #1a2332;
+        --primary-light: #2d3e5f;
+        --accent-blue: #7c99bb;
+        --text-light: #f0f4f8;
+        --text-muted: #84878b;
+        --text-dark: #0f1419;
+        --bg-light: #ffffff;
+        --border-color: #e2e8f0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: var(--text-dark);
+        line-height: 1.6;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        max-width: 1200px;
+        margin: 30px auto;
+        background: var(--bg-light);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        overflow: hidden;
+        animation: slideUp 0.8s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* SIDEBAR */
+      .sidebar {
+        background: linear-gradient(
+          180deg,
+          var(--primary-dark) 0%,
+          var(--primary-light) 100%
+        );
+        color: var(--text-light);
+        padding: 50px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .sidebar a {
+        color: var(--text-light);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .profile-section {
+        text-align: center;
+        animation: fadeIn 1s ease-out 0.2s both;
+      }
+
+      .profile-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 2px solid var(--text-light);
+        object-fit: cover;
+        transform: scaleX(-1);
+        margin: 0 auto 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .name {
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      .title {
+        color: var(--accent-blue);
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* CONTACT SECTION */
+      .contact-section,
+      .skills-section,
+      .languages-section,
+      .hobbies-section {
+        animation: fadeIn 1s ease-out both;
+      }
+
+      .contact-section {
+        animation-delay: 0.3s;
+      }
+
+      .skills-section {
+        animation-delay: 0.4s;
+      }
+
+      .languages-section {
+        animation-delay: 0.5s;
+      }
+
+      .hobbies-section {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .section-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        display: inline-block;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 14px;
+      }
+
+      .contact-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        margin-top: 2px;
+
+        svg {
+          width: 100%;
+          height: 100%;
+          fill: var(--text-light);
+        }
+      }
+
+      .skill-item,
+      .language-item,
+      .hobby-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-size: 14px;
+      }
+
+      .skill-item::before,
+      .language-item::before,
+      .hobby-item::before {
+        content: "○";
+        color: var(--accent-blue);
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      /* MAIN CONTENT */
+      .main-content {
+        padding: 50px 45px;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+      }
+
+      .section {
+        animation: fadeInRight 0.8s ease-out both;
+      }
+
+      .section:nth-child(1) {
+        animation-delay: 0.7s;
+      }
+
+      .section:nth-child(2) {
+        animation-delay: 0.8s;
+      }
+
+      .section:nth-child(3) {
+        animation-delay: 0.9s;
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .section-heading {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .job-entry,
+      .education-entry {
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .job-entry:last-child,
+      .education-entry:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .job-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 4px;
+      }
+
+      .job-company {
+        font-size: 14px;
+        color: var(--text-muted);
+        margin-bottom: 2px;
+      }
+
+      .job-date {
+        font-size: 13px;
+        color: var(--text-muted);
+        font-weight: 500;
+        float: right;
+      }
+
+      .job-description {
+        list-style: none;
+        margin-top: 12px;
+      }
+
+      .job-description li {
+        padding-left: 20px;
+        margin-bottom: 10px;
+        position: relative;
+        font-size: 14px;
+        color: #4a5568;
+        line-height: 1.6;
+      }
+
+      .job-description li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--accent-blue);
+        font-weight: bold;
+      }
+
+      .degree {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 4px;
+      }
+
+      .university {
+        font-size: 14px;
+        color: var(--primary-dark);
+        margin-bottom: 6px;
+      }
+
+      .graduation-date {
+        font-size: 13px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      /* RESPONSIVE DESIGN */
+      @media (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+          margin: 15px;
+        }
+
+        .sidebar {
+          padding: 40px 30px;
+          gap: 30px;
+        }
+
+        .main-content {
+          padding: 40px 30px;
+          gap: 30px;
+        }
+
+        .job-date {
+          float: none;
+          margin-top: 0;
+          display: block;
+        }
+
+        .section-heading {
+          font-size: 18px;
+        }
+
+        .profile-image {
+          width: 120px;
+          height: 120px;
+        }
+
+        .name {
+          font-size: 24px;
+        }
+      }
+
+      /* PRINT STYLES */
+      @media print {
+        body {
+          background: white;
+        }
+
+        .container {
+          margin: 0;
+          box-shadow: none;
+          max-width: 100%;
+          border-radius: 0;
+        }
+
+        .profile-image:hover {
+          transform: none;
+        }
+      }
+
+      /* SCROLLBAR STYLING */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent-blue);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-light);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <!-- PROFILE SECTION -->
+        <div class="profile-section">
+          <img src="./image.png" alt="Свободина Юлия" class="profile-image" />
+          <h1 class="name">Свободина Юлия</h1>
+          <p class="title" style="text-transform: unset">
+            Фронтенд разработчик (React)
+          </p>
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact-section">
+          <h2 class="section-title">Контакты</h2>
+          <div class="contact-item">
+            <span class="contact-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="Layer_1"
+                data-name="Layer 1"
+                viewBox="0 0 24 24"
+                width="512"
+                height="512"
+              >
+                <path
+                  d="M13,1a1,1,0,0,1,1-1A10.011,10.011,0,0,1,24,10a1,1,0,0,1-2,0,8.009,8.009,0,0,0-8-8A1,1,0,0,1,13,1Zm1,5a4,4,0,0,1,4,4,1,1,0,0,0,2,0,6.006,6.006,0,0,0-6-6,1,1,0,0,0,0,2Zm9.093,10.739a3.1,3.1,0,0,1,0,4.378l-.91,1.049c-8.19,7.841-28.12-12.084-20.4-20.3l1.15-1A3.081,3.081,0,0,1,7.26.906c.031.031,1.884,2.438,1.884,2.438a3.1,3.1,0,0,1-.007,4.282L7.979,9.082a12.781,12.781,0,0,0,6.931,6.945l1.465-1.165a3.1,3.1,0,0,1,4.281-.006S23.062,16.708,23.093,16.739Zm-1.376,1.454s-2.393-1.841-2.424-1.872a1.1,1.1,0,0,0-1.549,0c-.027.028-2.044,1.635-2.044,1.635a1,1,0,0,1-.979.152A15.009,15.009,0,0,1,5.9,9.3a1,1,0,0,1,.145-1S7.652,6.282,7.679,6.256a1.1,1.1,0,0,0,0-1.549c-.031-.03-1.872-2.425-1.872-2.425a1.1,1.1,0,0,0-1.51.039l-1.15,1C-2.495,10.105,14.776,26.418,20.721,20.8l.911-1.05A1.121,1.121,0,0,0,21.717,18.193Z"
+                />
+              </svg>
+            </span>
+            <a href="tel:+79824144663" target="_blank" rel="noopener"
+              >+7 982 414 46 63</a
+            >
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="Outline"
+                viewBox="0 0 24 24"
+                width="512"
+                height="512"
+              >
+                <path
+                  d="M19,1H5A5.006,5.006,0,0,0,0,6V18a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V6A5.006,5.006,0,0,0,19,1ZM5,3H19a3,3,0,0,1,2.78,1.887l-7.658,7.659a3.007,3.007,0,0,1-4.244,0L2.22,4.887A3,3,0,0,1,5,3ZM19,21H5a3,3,0,0,1-3-3V7.5L8.464,13.96a5.007,5.007,0,0,0,7.072,0L22,7.5V18A3,3,0,0,1,19,21Z"
+                />
+              </svg>
+            </span>
+            <a
+              href="mailto:july.svoboda@gmail.com"
+              target="_blank"
+              rel="noopener"
+              >july.svoboda@gmail.com</a
+            >
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="Outline"
+                viewBox="0 0 24 24"
+                width="512"
+                height="512"
+              >
+                <path
+                  d="M12,6a4,4,0,1,0,4,4A4,4,0,0,0,12,6Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,12Z"
+                />
+                <path
+                  d="M12,24a5.271,5.271,0,0,1-4.311-2.2c-3.811-5.257-5.744-9.209-5.744-11.747a10.055,10.055,0,0,1,20.11,0c0,2.538-1.933,6.49-5.744,11.747A5.271,5.271,0,0,1,12,24ZM12,2.181a7.883,7.883,0,0,0-7.874,7.874c0,2.01,1.893,5.727,5.329,10.466a3.145,3.145,0,0,0,5.09,0c3.436-4.739,5.329-8.456,5.329-10.466A7.883,7.883,0,0,0,12,2.181Z"
+                />
+              </svg>
+            </span>
+            <span>Москва</span>
+          </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section class="skills-section">
+          <h2 class="section-title">Ключевые навыки</h2>
+          <ul style="list-style: none; margin-bottom: 30px">
+            <li>
+              <p style="margin-bottom: 12px">Технологии:</p>
+              <ul>
+                <li class="skill-item">
+                  React.js (Hooks, Props, State Management, Component Lifecycle)
+                </li>
+                <li class="skill-item">
+                  JavaScript (ES6+, DOM API, Асинхронное программирование)
+                </li>
+                <li class="skill-item">TypeScript</li>
+                <li class="skill-item">
+                  HTML5, CSS3 (Flexbox, Grid, Media Queries, Animations)
+                </li>
+                <li class="skill-item">
+                  Responsive Web Design, Mobile-First подход
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul style="list-style: none; margin-bottom: 30px">
+            <li>
+              <p style="margin-bottom: 12px">Инструменты и окружение:</p>
+              <ul>
+                <li class="skill-item">Git / GitHub</li>
+                <li class="skill-item">npm</li>
+                <li class="skill-item">Webpack, Vite (базовое понимание)</li>
+                <li class="skill-item">Visual Studio Code, Chrome DevTools</li>
+              </ul>
+            </li>
+          </ul>
+          <ul style="list-style: none">
+            <li>
+              <p style="margin-bottom: 12px">Soft skills:</p>
+              <ul>
+                <li class="skill-item">Логическое мышление</li>
+                <li class="skill-item">
+                  Быстрое обучение и адаптация к новым технологиям
+                </li>
+                <li class="skill-item">Внимание к деталям и качеству кода</li>
+                <li class="skill-item">Коммуникация и работа в команде</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <!-- LANGUAGES SECTION -->
+        <section class="languages-section">
+          <h2 class="section-title">Языки</h2>
+          <div class="language-item">
+            <span><strong>Русский:</strong> Родной</span>
+          </div>
+          <div class="language-item">
+            <span><strong>Английский:</strong> B1</span>
+          </div>
+        </section>
+
+        <!-- HOBBIES SECTION -->
+        <section class="hobbies-section">
+          <h2 class="section-title">Хобби</h2>
+          <div class="hobby-item">Сноуборд</div>
+          <div class="hobby-item">Танцы</div>
+          <div class="hobby-item">Шахматы</div>
+        </section>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <!-- PROFILE SECTION -->
+        <section class="section">
+          <h2 class="section-heading">Обо мне</h2>
+          <div style="font-size: 14px; line-height: 1.8; color: #4a5568">
+            <p style="margin-bottom: 15px">
+              Я&nbsp;фронтенд разработчик с&nbsp;4-мя годами опыта и&nbsp;высшим
+              техническим образованием.
+            </p>
+            <p style="margin-bottom: 15px">
+              Начала свою карьеру, как техник в&nbsp;научно-исследовательском
+              институте, где занималась разработкой нейросетевых решений
+              на&nbsp;Python. Этот опыт развил мое алгоритмическое мышление
+              и&nbsp;логику.
+            </p>
+            <p style="margin-bottom: 15px">
+              В&nbsp;2024 году я&nbsp;решила перейти в&nbsp;сферу фронтенд
+              разработки, так как мне интересно создавать визуальные
+              и&nbsp;интерактивные веб-приложения.&nbsp;с&nbsp;2024 года
+              я&nbsp;работала в&nbsp;команде с&nbsp;сеньор разработчиком, делала
+              проекты для клиентов: от&nbsp;небольших лендингов до&nbsp;сложных
+              веб-приложений, используя React, TypeScript, HTML, CSS
+              и&nbsp;другие технологии, в&nbsp;зависимости от&nbsp;проекта.
+            </p>
+            <p style="margin-bottom: 15px">
+              Я&nbsp;аккуратно верстаю, кроссбраузерно и&nbsp;адаптивно,
+              используя mobileFirst подход. Основательно и&nbsp;ответственно
+              подхожу к&nbsp;работе, уделяя большое внимание качеству кода.
+            </p>
+            <p>
+              Я&nbsp;быстро учусь, внимательна к&nbsp;деталям и&nbsp;всегда
+              стремлюсь к&nbsp;профессиональному росту.
+            </p>
+          </div>
+        </section>
+
+        <!-- WORK EXPERIENCE SECTION -->
+        <section class="section">
+          <h2 class="section-heading">Опыт работы</h2>
+
+          <!-- Job 1 -->
+          <div class="job-entry">
+            <div class="job-title">Frontend разработчик</div>
+            <div
+              style="display: flex; justify-content: space-between; gap: 10px"
+            >
+              <div class="job-company">Москва</div>
+              <div class="job-date">Декабрь 2024 – настоящее время</div>
+            </div>
+            <ul class="job-description">
+              <li>
+                Разработка и поддержка UI-компонентов в сотрудничестве с более
+                опытными разработчиками на React
+              </li>
+              <li>Разработка адаптивных промо лендингов</li>
+              <li>Работа с макетами в Figma</li>
+              <li>
+                Выполнение коммерческих задач в рамках требований заказчика и
+                сроков
+              </li>
+            </ul>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="job-entry">
+            <div class="job-title">Техник</div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                flex-wrap: wrap;
+              "
+            >
+              <div class="job-company">
+                Государственный научно-исследовательский институт авиационных
+                систем
+              </div>
+              <div class="job-date">Сентябрь 2022 – Октябрь 2024</div>
+            </div>
+            <ul class="job-description">
+              <li>Разработка решений на основе нейронных сетей на Python</li>
+              <li>
+                Работа с системами компьютерного зрения (включая задачи
+                распознавания в реальном времени)
+              </li>
+              <li>
+                Опыт работы в инженерной команде и участие в исследовательских
+                проектах
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section class="section">
+          <h2 class="section-heading">Образование</h2>
+
+          <div class="education-entry">
+            <div class="degree">
+              Курсы повышения квалификации по фронтенд разработке
+            </div>
+            <div class="university">
+              Stepik JS, Школа 21 (интенсив), Rolling Scopes School — JavaScript
+              и Frontend
+            </div>
+          </div>
+
+          <div class="education-entry">
+            <div class="degree">
+              Бакалавр, управление и информатика в технических системах
+            </div>
+            <div class="graduation-date">Сентябрь 2020 – Июль 2024</div>
+            <div class="university">МАИ: Московский Авиационный Институт</div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
